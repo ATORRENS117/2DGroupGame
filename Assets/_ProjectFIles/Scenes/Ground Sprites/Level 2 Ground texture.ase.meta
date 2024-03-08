@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638454921354689231
+  platformSettingsDirtyTick: 638454929539474860
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Level 2 Ground texture
     originalName: 
-    pivot: {x: 1, y: -1}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 0d17af247da778a42803a03fcb580d71
+    spriteID: 45d24631668ce3f4ea768a36c6e0aceb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,10 +152,10 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
-        y: 16
+        y: 0
         width: 16
         height: 16
-      spriteId: 0d17af247da778a42803a03fcb580d71
+      spriteId: 45d24631668ce3f4ea768a36c6e0aceb
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -197,4 +197,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 16, y: 16}
