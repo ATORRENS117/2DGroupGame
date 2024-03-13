@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 20be8302001790245ae41efc06d09c53
+guid: e9fadab2d44b466428453becd83000f8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638459206118230583
+  platformSettingsDirtyTick: 638459220826593588
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Imp demon _Frame_0
+  - name: Level 2 Deep Ground texture
     originalName: 
-    pivot: {x: 0.5740741, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 54
-      height: 47
-    spriteID: 7578201e6144e6341a2bd13c9ac55182
+      width: 16
+      height: 16
+    spriteID: f3cc6d9c5330fd14096dc95db07042b8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,107 +139,23 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Imp demon _Frame_2
-    originalName: 
-    pivot: {x: 0.5849057, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 66
-      y: 58
-      width: 53
-      height: 45
-    spriteID: 0ac75b12a363cbf448ca4c7cf11a9198
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 66, y: 58}
-  - name: Imp demon _Frame_3
-    originalName: 
-    pivot: {x: 0.5849057, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 66
-      y: 4
-      width: 53
-      height: 46
-    spriteID: 8f4fb91d219b4eb448d208bfdb2bbff0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 66, y: 4}
-  - name: Imp demon _Frame_1
-    originalName: 
-    pivot: {x: 0.5740741, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 59
-      width: 54
-      height: 47
-    spriteID: e2acfa4346c44aa48951e26ba15da67d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 59}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -56560127
-    name: 'Imp demon '
+    guid: -240576536
+    name: Level 2 Deep Ground texture
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Imp demon _Frame_0
+    - name: Level 2 Deep Ground texture
       frameIndex: 0
       cellRect:
-        x: 1
+        x: 0
         y: 0
-        width: 54
-        height: 47
-      spriteId: 7578201e6144e6341a2bd13c9ac55182
-    - name: Imp demon _Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 1
-        y: 0
-        width: 53
-        height: 45
-      spriteId: 0ac75b12a363cbf448ca4c7cf11a9198
-    - name: Imp demon _Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 1
-        y: 0
-        width: 53
-        height: 46
-      spriteId: 8f4fb91d219b4eb448d208bfdb2bbff0
-    - name: Imp demon _Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 1
-        y: 0
-        width: 54
-        height: 47
-      spriteId: e2acfa4346c44aa48951e26ba15da67d
+        width: 16
+        height: 16
+      spriteId: f3cc6d9c5330fd14096dc95db07042b8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -281,4 +197,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
+  canvasSize: {x: 16, y: 16}
