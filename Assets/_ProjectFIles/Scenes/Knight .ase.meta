@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34f4801a5fe538f42b65769291b5d9fe
+guid: c085ca9cf2825dc48bd8cde17d3d8af0
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638459243660328225
+  platformSettingsDirtyTick: 638459252296471434
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Cloud
+  - name: Knight _Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.59375, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 16
-    spriteID: 4b23879e2c43c834793f31e34ad4ce87
+      width: 32
+      height: 47
+    spriteID: 58731ba7305ab0c4f88d5ee57abd96ee
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,23 +139,79 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Knight _Frame_1
+    originalName: 
+    pivot: {x: 0.59375, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 32
+      height: 44
+    spriteID: 2be2b1453cfa92449b107a91fb75b334
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 4}
+  - name: Knight _Frame_2
+    originalName: 
+    pivot: {x: 0.59375, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 32
+      height: 45
+    spriteID: c924fd04d3e356c43b4e95a7f911a733
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -399938107
-    name: Cloud
+    guid: 1083662203
+    name: 'Knight '
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Cloud
+    - name: Knight _Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 13
         y: 0
-        width: 16
-        height: 16
-      spriteId: 4b23879e2c43c834793f31e34ad4ce87
+        width: 32
+        height: 47
+      spriteId: 58731ba7305ab0c4f88d5ee57abd96ee
+    - name: Knight _Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 13
+        y: 0
+        width: 32
+        height: 44
+      spriteId: 2be2b1453cfa92449b107a91fb75b334
+    - name: Knight _Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 13
+        y: 0
+        width: 32
+        height: 45
+      spriteId: c924fd04d3e356c43b4e95a7f911a733
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -197,4 +253,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
+  canvasSize: {x: 64, y: 64}
