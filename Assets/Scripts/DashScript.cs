@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,16 +12,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
-    [SerializeField] private Animator animator;
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 30f;
     private float dashingTime = 0.15f;
     private float dashingCooldown = 3f;
-    
-    private void Start()
+
+    private void Awake()
     {
-        animator = GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -49,23 +47,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (rb.velocity.x != 0f)
-        {
-            animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            animator.SetBool("IsWalking", false);
-        }
-        if (isDashing == true)
-        {
-            animator.SetBool("IsDashing", true);
-        }
-        else
-        {
-            animator.SetBool("IsDashing", false);
-        }
-
         Flip();
     }
 
@@ -77,17 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-       if ( rb.velocity.x != 0f)
-        {
-            animator.SetBool("IsWalking", true);
-        }
-       else
-        {
-            animator.SetBool("IsWalking", false);
-        }
     }
-
 
     private bool IsGrounded()
     {
