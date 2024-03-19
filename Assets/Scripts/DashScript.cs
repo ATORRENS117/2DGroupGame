@@ -12,22 +12,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
+    private Animator animator;
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 30f;
     private float dashingTime = 0.15f;
     private float dashingCooldown = 3f;
 
-    private void Awake()
+    private void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (isDashing)
         {
+            animator.SetBool("InDash", true);
             return;
+        }
+        else
+        {
+            animator.SetBool("InDash", false);
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -48,6 +54,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Flip();
+
+        if (rb.velocity.x != 0f)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
+       
     }
 
     private void FixedUpdate()
