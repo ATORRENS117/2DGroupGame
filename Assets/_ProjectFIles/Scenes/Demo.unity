@@ -15183,7 +15183,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 986577878}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aaeb9dc0f717872499c490a389d00f69, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15219,7 +15219,7 @@ Animator:
   m_GameObject: {fileID: 986577878}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b17f166937e5924ea81c72d16fd3da6, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb6e50ab443e2c34dbb0ade7824d1d5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
