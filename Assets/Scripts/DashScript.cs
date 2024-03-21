@@ -63,7 +63,15 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
-       
+
+        if (rb.velocity.y != 0f)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+        else
+        {
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     private void FixedUpdate()
