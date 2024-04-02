@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Button : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+
     public void PlayGame()
     {
         SceneManager.LoadSceneAsync(1);
@@ -17,5 +17,5 @@ public class Button : MonoBehaviour
         Application.Quit();
     }
     // Update is called once per frame
-   
+
 }
