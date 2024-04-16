@@ -18,14 +18,25 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 30f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
+    
+    public int maxDash = 1;
+    public int currentDash;
+    public Dash_Icon dash;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
+    private void OnConnectedToServer()
+    {
+        currentDash = maxDash;
+        dash.SetMaxDash(maxDash);
+    }
     private void Update()
     {
+      
         if (isDashing)
         {
             animator.SetBool("InDash", true);
@@ -51,8 +62,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
+            {
+                EmptyBar(100);
+            }
         }
 
+        void EmptyBar(int empty)
+        {
+            currentDash -= empty;
+            dash.SetDash(currentDash);
+            
+        }
         Flip();
 
         if (rb.velocity.x != 0f)
@@ -115,4 +135,5 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
 
     }
+
 }
