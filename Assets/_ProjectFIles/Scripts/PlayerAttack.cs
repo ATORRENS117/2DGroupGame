@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
+            
         }
 
         if (attacking)
@@ -27,12 +28,15 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+                //TODO Set the Counter UI here to on or 1 if its a slider
             }
         }
     }
 
     private void Attack()
     {
+        //TODO Set the Counter UI here to off or zero if its a slider
+
         attacking = true;
         attackArea.SetActive(attacking);
     }
