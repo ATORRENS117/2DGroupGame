@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     
     public int maxDash = 1;
     public int currentDash;
-    public Dash_Icon dash;
+    public DashUI dash;
 
     private void Start()
     {
@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
             {
+                Debug.Log("============ Start Dash");
                 EmptyBar(100);
             }
         }
@@ -71,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
         {
             currentDash -= empty;
             dash.SetDash(currentDash);
+
+            print("888888888888 Dash Empty");
             
         }
         Flip();

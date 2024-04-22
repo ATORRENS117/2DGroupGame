@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dash_Icon : MonoBehaviour
+public class DashUI : MonoBehaviour
 {
     private WaitForSeconds regenDash = new WaitForSeconds(0.1f);
     private Coroutine regen;
@@ -14,29 +14,36 @@ public class Dash_Icon : MonoBehaviour
     { 
         slider.maxValue = dash;
         slider.value = dash;
-        if (regen != null)
-            StopCoroutine(regen);
-        regen = StartCoroutine(RegenDash());
+
+        //StartCoroutine(RegenDash());
+
+        //if (regen != null)
+        //    StopCoroutine(regen);
+        //regen = StartCoroutine(RegenDash());
         
     }
 
     public void SetDash(int dash)
     { 
-    slider.value = (dash);
-        
+        slider.value = (dash);
+
+        StartCoroutine(RegenDash());
+
     }
     private IEnumerator RegenDash()
     {
         yield return new WaitForSeconds(2);
 
-        while (slider != null)
-        {
-            slider.maxValue += slider.value / 100;
-            slider.value = slider.maxValue;
-            yield return regenDash;
+        slider.value = 1;
 
-        }
-        regen = null;
+        //while (slider != null)
+        //{
+        //    slider.maxValue += slider.value / 100;
+        //    slider.value = slider.maxValue;
+        //    yield return regenDash;
+
+        //}
+        //regen = null;
     }
 }
 //You know this would be a lot less stressful if I wasn't under a time limit...or inexperienced.
