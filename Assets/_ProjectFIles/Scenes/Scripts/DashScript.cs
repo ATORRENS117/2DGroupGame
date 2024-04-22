@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("InDash", false);
         }
+   
 
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -66,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
                 SetDashBar(0);
             }
         }
+       
+
 
 
         Flip();
@@ -78,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
-
-        if (rb.velocity.y != 0f)
+        
+        if (rb != IsGrounded())
         {
             animator.SetBool("IsJumping", true);
         }
@@ -97,6 +101,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); 
+
+       
+       
     }
 
     private bool IsGrounded()
