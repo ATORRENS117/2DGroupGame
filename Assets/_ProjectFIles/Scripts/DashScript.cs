@@ -63,19 +63,11 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
             {
-                Debug.Log("============ Start Dash");
-                EmptyBar(100);
+                SetDashBar(0);
             }
         }
 
-        void EmptyBar(int empty)
-        {
-            currentDash -= empty;
-            dash.SetDash(currentDash);
 
-            print("888888888888 Dash Empty");
-            
-        }
         Flip();
 
         if (rb.velocity.x != 0f)
@@ -124,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
+
         canDash = false;
         isDashing = true;
         float originalGravity = rb.gravityScale;
@@ -137,6 +130,16 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
 
+        print("End Dash - Reset Dash UI Fill");
+        SetDashBar(1);
+    }
+
+    // add a plus or minus value to set the dash bar
+    void SetDashBar(int value)
+    {
+        print("Start Dash - Call Dash UI Empty");
+        currentDash = value;
+        dash.SetDash(currentDash);
     }
 
 }
