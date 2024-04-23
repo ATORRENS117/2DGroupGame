@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
     
-    public int maxDash = 1;
-    public int currentDash;
-    public DashUI dash;
+    public float maxDash = 1;
+    public float currentDash;
+    public DashUI dashUI;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnConnectedToServer()
     {
         currentDash = maxDash;
-        dash.SetMaxDash(maxDash);
+        dashUI.SetMaxDash(maxDash);
     }
     private void Update()
     {
@@ -138,15 +139,15 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
 
         print("End Dash - Reset Dash UI Fill");
-        SetDashBar(1);
+        SetDashBar(1f);
     }
 
     // add a plus or minus value to set the dash bar
-    void SetDashBar(int value)
+    void SetDashBar(float value)
     {
         print("Start Dash - Call Dash UI Empty");
         currentDash = value;
-        dash.SetDash(currentDash);
+        dashUI.SetDash(currentDash);
     }
 
 }
