@@ -15746,7 +15746,7 @@ MonoBehaviour:
   tr: {fileID: 986577881}
   maxDash: 1
   currentDash: 0
-  dashUI: {fileID: 1003769734}
+  dashSliderUI: {fileID: 1003769734}
 --- !u!114 &986577884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15996,6 +15996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d969f8646684d7244836bf15b47bea7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpColour: 1
+  setColours: 1
+  fillColour: {r: 0, g: 0.08627451, b: 1, a: 1}
+  emptyColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   slider: {fileID: 1831378601}
   maxDash: 0
   dash: 0
@@ -24200,6 +24204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d969f8646684d7244836bf15b47bea7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpColour: 1
+  setColours: 1
+  fillColour: {r: 0, g: 0, b: 0, a: 0}
+  emptyColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   slider: {fileID: 178896669}
   maxDash: 0
   dash: 0

@@ -21,21 +21,26 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
     
-    public float maxDash = 1;
+    public float maxDash = 1f;
     public float currentDash;
-    public DashUI dashUI;
+    [FormerlySerializedAs("uiSliderController")] [FormerlySerializedAs("dashUI")] public UI_SliderController dashSliderUI;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         
+        //set the max dash value and set the slider value to the max dash value
+        currentDash = maxDash;
+        dashSliderUI.SetMax(maxDash);
+        dashSliderUI.SetFill(currentDash);
     }
 
-    private void OnConnectedToServer()
-    {
-        currentDash = maxDash;
-        dashUI.SetMaxDash(maxDash);
-    }
+    // not sure what this is for?
+    // private void OnConnectedToServer() 
+    // {
+    //     currentDash = maxDash;
+    //     dashSliderUI.SetMax(maxDash);
+    // }
     private void Update()
     {
       
@@ -66,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
             {
-                SetDashBar(0);
+                SetDashBar(0,dashingCooldown*4);
             }
         }
        
@@ -139,15 +144,22 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
 
         print("End Dash - Reset Dash UI Fill");
-        SetDashBar(1f);
+        SetDashBar(1f, dashingCooldown);
     }
 
-    // add a plus or minus value to set the dash bar
-    void SetDashBar(float value)
+    // add a plus or minus value to set the dash bar 
+    void SetDashBar(float dashValue)
     {
         print("Start Dash - Call Dash UI Empty");
-        currentDash = value;
-        dashUI.SetDash(currentDash);
+        currentDash = dashValue;
+        dashSliderUI.SetFill(currentDash);
+    }
+    // add a plus or minus value to set the dash bar - sliderspeed is optional override to set the speed of the bar refill
+    void SetDashBar(float dashValue, float sliderSpeed)
+    {
+        print("Start Dash - Call Dash UI Empty");
+        currentDash = dashValue;
+        dashSliderUI.SetFill(currentDash, sliderSpeed);
     }
 
 }
