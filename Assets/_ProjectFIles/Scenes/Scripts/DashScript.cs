@@ -23,36 +23,54 @@ public class PlayerMovement : MonoBehaviour
     
     public float maxDash = 1f;
     public float currentDash;
-    [FormerlySerializedAs("uiSliderController")] [FormerlySerializedAs("dashUI")] public UI_SliderController dashSliderUI;
+    public UI_SliderController dashSliderUI;
+
+    //footsteps sound controller
+    public FootstepsController footstepsController; // component is attached to player
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        
+
+        //get the footsteps controller from the player gameobject
+        footstepsController = this.GetComponent<FootstepsController>();
+
         //set the max dash value and set the slider value to the max dash value
         currentDash = maxDash;
-        dashSliderUI.SetMax(maxDash);
-        dashSliderUI.SetFill(currentDash);
+
+        if (dashSliderUI != null)
+        {
+            dashSliderUI.SetMax(maxDash);
+            dashSliderUI.SetFill(currentDash);
+        }
     }
 
-    // not sure what this is for?
-    // private void OnConnectedToServer() 
-    // {
-    //     currentDash = maxDash;
-    //     dashSliderUI.SetMax(maxDash);
-    // }
     private void Update()
     {
-      
-        if (isDashing)
+
+        
+
+        if (rb.velocity.x != 0f && IsGrounded())
         {
-            animator.SetBool("InDash", true);
-            return;
+            animator.SetBool("IsWalking", true);
+            //call footsteps sound controller here
+            footstepsController.walking = true;
+            //FindObjectOfType<AudioManager>().Play("Footsteps");
+
         }
         else
         {
-            animator.SetBool("InDash", false);
+            animator.SetBool("IsWalking", false);
+            footstepsController.walking = false;
+            //FindObjectOfType<AudioManager>().Stop("Footsteps");
         }
+
+        if (isDashing)
+        {
+            return;
+        }
+       
    
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -60,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            FindObjectOfType<AudioManager>().Play("Jump");
+
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -67,28 +87,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-            {
-                SetDashBar(0,dashingCooldown*4);
-            }
-        }
-       
-
-
-
-        Flip();
-
-        if (rb.velocity.x != 0f)
-        {
-            animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            animator.SetBool("IsWalking", false);
-        }
-        
         if (rb != IsGrounded())
         {
             animator.SetBool("IsJumping", true);
@@ -97,6 +95,27 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsJumping", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            FindObjectOfType<AudioManager>().Play("DashWoosh");
+            animator.SetBool("InDash", true) ;
+            StartCoroutine(Dash());
+            {
+                SetDashBar(0,dashingCooldown*4);
+            }
+        }
+        else
+        {
+            animator.SetBool("InDash", false) ;
+        }
+
+
+
+        Flip();
+        
+      
+
     }
 
     private void FixedUpdate()
@@ -157,9 +176,12 @@ public class PlayerMovement : MonoBehaviour
     // add a plus or minus value to set the dash bar - sliderspeed is optional override to set the speed of the bar refill
     void SetDashBar(float dashValue, float sliderSpeed)
     {
-        print("Start Dash - Call Dash UI Empty");
-        currentDash = dashValue;
-        dashSliderUI.SetFill(currentDash, sliderSpeed);
-    }
+        if(dashSliderUI != null)
+        {
+            print("Start Dash - Call Dash UI Empty");
+            currentDash = dashValue;
+            dashSliderUI.SetFill(currentDash, sliderSpeed);
+        }
 
+    }
 }
