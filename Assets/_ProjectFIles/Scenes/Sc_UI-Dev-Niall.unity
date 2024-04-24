@@ -15747,6 +15747,7 @@ MonoBehaviour:
   maxDash: 1
   currentDash: 0
   dashSliderUI: {fileID: 1003769734}
+  footstepsController: {fileID: 0}
 --- !u!114 &986577884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15981,7 +15982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45.1, y: -160}
+  m_AnchoredPosition: {x: 45.100098, y: -160}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1003769734
@@ -16856,7 +16857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1234968258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24189,7 +24190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45.1, y: -300}
+  m_AnchoredPosition: {x: 45.100098, y: -300}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1363305845

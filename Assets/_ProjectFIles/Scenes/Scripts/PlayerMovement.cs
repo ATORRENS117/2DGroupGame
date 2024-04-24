@@ -23,11 +23,15 @@ public class PlayerMovement : MonoBehaviour
     
     public float maxDash = 1f;
     public float currentDash;
+    
+    [Header("UI Components")]
     public UI_SliderController dashSliderUI;
 
+    [Header("Audio Components")]
     //footsteps sound controller
     public FootstepsController footstepsController; // component should be attached to player
-
+    
+    
 
     private void Start()
     {
