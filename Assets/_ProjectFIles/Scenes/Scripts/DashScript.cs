@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public UI_SliderController dashSliderUI;
 
     //footsteps sound controller
-    public FootstepsController footstepsController; // component is attached to player
+    public FootstepsController footstepsController; // component should be attached to player
 
 
     private void Start()
@@ -44,6 +44,19 @@ public class PlayerMovement : MonoBehaviour
             dashSliderUI.SetMax(maxDash);
             dashSliderUI.SetFill(currentDash);
         }
+        else
+        {
+            Debug.Log("Dash Slider UI is not set in the inspector: This is a UI component to show the dash bar.");
+        }
+
+        if (gameObject.GetComponent<FootstepsController>())
+        {
+           footstepsController = gameObject.GetComponent<FootstepsController>(); 
+        }
+        else
+        {
+            Debug.Log("Footsteps Controller script is not attached to the player gameobject: This is a script to control the footstep sounds.");
+        }
     }
 
     private void Update()
@@ -55,15 +68,20 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsWalking", true);
             //call footsteps sound controller here
-            footstepsController.walking = true;
-            //FindObjectOfType<AudioManager>().Play("Footsteps");
+            if (footstepsController)
+            {
+                footstepsController.walking = true;
+            }
+            
 
         }
         else
         {
             animator.SetBool("IsWalking", false);
-            footstepsController.walking = false;
-            //FindObjectOfType<AudioManager>().Stop("Footsteps");
+            if (footstepsController)
+            {
+                footstepsController.walking = false;
+            }
         }
 
         if (isDashing)
@@ -78,7 +96,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            FindObjectOfType<AudioManager>().Play("Jump");
+            //check the audio manager is present in the scene before playing the sound
+            if (FindObjectOfType<AudioManager>())
+            {
+                FindObjectOfType<AudioManager>().Play("Jump");
+            }
 
         }
 
@@ -98,7 +120,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            FindObjectOfType<AudioManager>().Play("DashWoosh");
+            //check the audio manager is present in the scene before playing the sound
+            if (FindObjectOfType<AudioManager>())
+            {
+                FindObjectOfType<AudioManager>().Play("DashWoosh");
+            }
+            
             animator.SetBool("InDash", true) ;
             StartCoroutine(Dash());
             {
