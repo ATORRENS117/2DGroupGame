@@ -10,7 +10,11 @@ public class HealthManagement : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public bool attackTriggered = false;
     [SerializeField] GameObject gameOver;
+
+    [SerializeField] GameObject counterScript;
+    private bool counterEnabled;
 
     private void Awake()
     {
@@ -32,32 +36,52 @@ public class HealthManagement : MonoBehaviour
 
         if (collision.transform.tag == "Enemy")
         {
-            if (health != 0)
+            attackTriggered = true;
+            counterEnabled = counterScript.GetComponent<CounterScript>().counterOn;
+            if (counterEnabled == true)
             {
+                Debug.Log("Damage Countered");
+                StartCoroutine(DelayAttackTrigger());
 
-
-                health = health - 1;
-
-
-
-                if (health == 0)
-                {
-                    gameOver.SetActive(true);
-
-                }
-                else
-                {
-                    StartCoroutine(GetHurt());
-                }
             }
+            else
+            {
+                attackTriggered = false;
+                if (health != 0)
+                {
 
 
+                    health = health - 1;
+
+
+
+
+                    if (health == 0)
+                    {
+                        gameOver.SetActive(true);
+
+
+                    }
+                    else
+                    {
+                        StartCoroutine(GetHurt());
+
+                    }
+                }
+
+
+            }
         }
-
 
     }
 
-    IEnumerator GetHurt()
+        IEnumerator DelayAttackTrigger()
+        {
+            yield return null;
+            attackTriggered = false;
+        }
+
+        IEnumerator GetHurt()
     {
         Physics2D.IgnoreLayerCollision(3, 7);
         yield return new WaitForSeconds(2);
