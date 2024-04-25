@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UI_SliderController : MonoBehaviour
@@ -19,8 +20,8 @@ public class UI_SliderController : MonoBehaviour
     [Space(10)]
     [Header("Slider Reference and Values")]
     public Slider slider;
-    public float maxDash; //set from external script
-    public float dash; //set from external script
+    public float maxValue; //set from external script
+    public float currentValue; //set from external script
     public float lerpSpeed = 5f; //set from external script
     
 
@@ -42,20 +43,20 @@ public class UI_SliderController : MonoBehaviour
 
     public void SetMax(float value)
     { 
-        maxDash = value;
-        slider.maxValue = maxDash;
-        slider.value = dash;
+        maxValue = value;
+        slider.maxValue = maxValue;
+        slider.value = currentValue;
         
     }
 
     public void SetFill(float value)
     { 
-        dash = value;
+        currentValue = value;
         //slider.value = (dash);
     }
     public void SetFill(float value, float speed)
     { 
-        dash = value;
+        currentValue = value;
         lerpSpeed = speed;
         //slider.value = (dash);
     }
@@ -64,9 +65,9 @@ public class UI_SliderController : MonoBehaviour
     private void Update()
     {
         //lerp the slider value to the dash value
-        slider.value = Mathf.Lerp(slider.value, dash, Time.deltaTime * 5f);
+        slider.value = Mathf.Lerp(slider.value, currentValue, Time.deltaTime * 5f);
         
         //change the colour of the fill based on the value of the dash
-        slider.fillRect.GetComponent<Image>().color = Color.Lerp(emptyColour, fillColour, dash / maxDash);
+        slider.fillRect.GetComponent<Image>().color = Color.Lerp(emptyColour, fillColour, currentValue / maxValue);
     }
 }

@@ -8,11 +8,11 @@ using UnityEngine.UIElements;
 
 public class CounterScript : MonoBehaviour
 {
-
-
     [SerializeField] private Rigidbody2D rb;
+
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject player;
+
     //[SerializeField] private GameObject enemy;
     [SerializeField] private GameObject TempButtonDownVisual;
     [SerializeField] private GameObject TempCooldownVisual;
@@ -27,13 +27,32 @@ public class CounterScript : MonoBehaviour
     [SerializeField] GameObject healthScriptRef;
 
 
+    [Header("UI Components")] 
+    public UI_SliderController counterSliderUI;
+
+    private float counterMaxValue = 1f;
+    private float counterCurrentValue = 0f;
+
     private void Start()
     {
         canCounter = true;
         hitRegistered = false;
         counterOn = false;
-        TempButtonDownVisual.SetActive(false);
-        TempCooldownVisual.SetActive(false);
+        
+        SetTempVisualButton(false);
+        SetTempVisualCooldown(false);
+        
+        if (counterSliderUI != null)
+        {
+            //these can be dynamic values eventually - for now 0 and 1 are fine for the ui slider
+            counterCurrentValue = counterMaxValue;
+            counterSliderUI.SetMax(counterMaxValue);
+            counterSliderUI.SetFill(counterCurrentValue);
+        }
+        else
+        {
+            Debug.Log("Counter Slider UI is not set in the inspector: This is a UI component to show the counter bar.");
+        }
     }
 
     void Update()
@@ -45,34 +64,28 @@ public class CounterScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1)) //only triggers on actual click not hold so need a continuous routine triggered but not included here
             {
-                TempButtonDownVisual.SetActive(true);
+                //TempButtonDownVisual.SetActive(true);
+                SetTempVisualButton(true);
                 counterOn = true;
                 repeatButtonDown = true;
                 StartCoroutine(ButtonHeldDown());
-
             }
 
             if (Input.GetMouseButtonUp(1))
             {
                 counterOn = false;
-                TempButtonDownVisual.SetActive(false);
+                //TempButtonDownVisual.SetActive(false);
+                SetTempVisualButton(false);
                 repeatButtonDown = false;
             }
-
-
-
         }
-
-
     }
-
 
 
     private IEnumerator ButtonHeldDown()
     {
         if (hitRegistered == true)
         {
-
             StartCoroutine(TriggerCounter());
             counterOn = false;
             yield return null;
@@ -84,13 +97,14 @@ public class CounterScript : MonoBehaviour
             yield return null;
             StartCoroutine(ButtonHeldDown());
         }
-
-
     }
 
 
     private IEnumerator TriggerCounter()
     {
+        //set the ui slider to 0
+        counterSliderUI.SetFill(0f);
+        
         canCounter = false;
         counterOn = false;
         hitRegistered = false;
@@ -99,13 +113,39 @@ public class CounterScript : MonoBehaviour
         yield return new WaitForSeconds(counterCooldown);
         TempCooldownVisual.SetActive(false);
         canCounter = true;
+
+        //set the ui slider to max
+        counterSliderUI.SetFill(counterMaxValue);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Enemy")
         {
             hitRegistered = true;
-
         }
     }
+    
+    #region Tempory Visual Debugs
+    
+    //-- TEMP Debugs -------------------------------------------------------------------------
+    //function to set temp button down visuals
+    public void SetTempVisualButton(bool state)
+    {
+        if(TempButtonDownVisual)
+        {
+            TempButtonDownVisual.SetActive(state);
+        }
+        
+    }
+    //function to set temp button down visual cooldown
+    public void SetTempVisualCooldown(bool state)
+    {
+        if (TempCooldownVisual)
+        {
+            TempCooldownVisual.SetActive(state);
+        }
+    }
+    #endregion
+    
 }
