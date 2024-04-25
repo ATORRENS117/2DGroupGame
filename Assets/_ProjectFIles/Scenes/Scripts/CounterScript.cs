@@ -13,7 +13,7 @@ public class CounterScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     //[SerializeField] private Animator animator;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject enemy;
+    //[SerializeField] private GameObject enemy;
     [SerializeField] private GameObject TempButtonDownVisual;
     [SerializeField] private GameObject TempCooldownVisual;
 
