@@ -26,9 +26,11 @@ public class FootstepsController : MonoBehaviour
             {
                 timer = 0;
                 //play footstep
-                FindObjectOfType<AudioManager>().Play("Footsteps");
+                if (FindObjectOfType<AudioManager>())
+                {
+                    FindObjectOfType<AudioManager>().Play("Footsteps");
+                }
                 Debug.Log("play footstep-----------------");
-
             }
         }
 
