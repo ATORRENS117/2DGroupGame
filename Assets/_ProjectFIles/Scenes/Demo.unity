@@ -15405,6 +15405,7 @@ GameObject:
   - component: {fileID: 986577879}
   - component: {fileID: 986577888}
   - component: {fileID: 986577887}
+  - component: {fileID: 986577889}
   m_Layer: 6
   m_Name: Player Placeholder
   m_TagString: Player
@@ -15619,7 +15620,8 @@ MonoBehaviour:
   tr: {fileID: 986577881}
   maxDash: 1
   currentDash: 0
-  dash: {fileID: 1003769734}
+  dashSliderUI: {fileID: 1003769734}
+  footstepsController: {fileID: 0}
 --- !u!114 &986577884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15744,6 +15746,21 @@ MonoBehaviour:
   fullHeart: {fileID: 1677773968, guid: 8605f0bfeb2342d4f9fca5ea3ebfcc26, type: 3}
   emptyHeart: {fileID: 1009847412, guid: 8605f0bfeb2342d4f9fca5ea3ebfcc26, type: 3}
   gameOver: {fileID: 2101139629}
+--- !u!114 &986577889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986577878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad506d3625bf5084d946497d8919fbd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walking: 0
+  timer: 0
+  interval: 0.5
 --- !u!1 &995711947
 GameObject:
   m_ObjectHideFlags: 0
@@ -15869,7 +15886,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d969f8646684d7244836bf15b47bea7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpColour: 1
+  setColours: 1
+  fillColour: {r: 0, g: 0.08627451, b: 1, a: 1}
+  emptyColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   slider: {fileID: 1831378601}
+  maxDash: 0
+  dash: 0
+  lerpSpeed: 5
 --- !u!1 &1039374446
 GameObject:
   m_ObjectHideFlags: 0
@@ -16722,7 +16746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1234968258
 MonoBehaviour:
   m_ObjectHideFlags: 0
