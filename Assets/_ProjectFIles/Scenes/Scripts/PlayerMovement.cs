@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 30f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
+
+    [Range(1f, 20f)]
+    public float dashFillAnimationSpeed = 5;
     
     public float maxDash = 1f;
     public float currentDash;
@@ -134,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("InDash", true) ;
             StartCoroutine(Dash());
             {
-                SetDashBar(0,dashingCooldown*4);
+                SetDashBar(0,dashFillAnimationSpeed);
             }
         }
         else
@@ -192,11 +195,11 @@ public class PlayerMovement : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
+        yield return new WaitForSeconds(dashingCooldown/2);
         canDash = true;
 
         print("End Dash - Reset Dash UI Fill");
-        SetDashBar(1f, dashingCooldown);
+        SetDashBar(1f, dashFillAnimationSpeed/4);
     }
 
     // add a plus or minus value to set the dash bar 

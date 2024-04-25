@@ -65,9 +65,13 @@ public class UI_SliderController : MonoBehaviour
     private void Update()
     {
         //lerp the slider value to the dash value
-        slider.value = Mathf.Lerp(slider.value, currentValue, Time.deltaTime * 5f);
+        slider.value = Mathf.Lerp(slider.value, currentValue, Time.deltaTime * lerpSpeed);
         
         //change the colour of the fill based on the value of the dash
-        slider.fillRect.GetComponent<Image>().color = Color.Lerp(emptyColour, fillColour, currentValue / maxValue);
+        if(lerpColour)
+        {
+            slider.fillRect.GetComponent<Image>().color = Color.Lerp(emptyColour, fillColour, currentValue / maxValue);
+        }
+        
     }
 }
