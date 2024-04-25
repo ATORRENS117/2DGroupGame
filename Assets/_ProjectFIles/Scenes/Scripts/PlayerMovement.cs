@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("InDash", true) ;
             StartCoroutine(Dash());
             {
-                SetDashBar(0,dashFillAnimationSpeed);
+                
             }
         }
         else
@@ -184,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        SetDashBar(0, dashFillAnimationSpeed);
 
         canDash = false;
         isDashing = true;
@@ -195,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown/2);
+        yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
 
         print("End Dash - Reset Dash UI Fill");
