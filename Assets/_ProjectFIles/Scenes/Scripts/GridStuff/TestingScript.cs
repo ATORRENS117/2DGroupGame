@@ -27,7 +27,7 @@ public class Testing : MonoBehaviour
     {
         distance = Vector2.Distance(enemy.transform.position, player.transform.position);
         //Debug.Log(distance);
-        if (distance < 100f)
+        if (distance < 100f) //niall: i changed the distance to 100 - can set to a better value or variable
         {
             Vector3 PlayerPos = player.transform.position;
             Vector3 EnemyPos = enemy.transform.position;
