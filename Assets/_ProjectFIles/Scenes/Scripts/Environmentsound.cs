@@ -7,7 +7,7 @@ public class Environmentsound : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<AudioManager>().Play("Lava");
-
+        FindObjectOfType<AudioManager>().Play("HellAmbience");
     }
 
 }
