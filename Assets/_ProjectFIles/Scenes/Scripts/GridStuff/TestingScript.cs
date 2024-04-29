@@ -26,7 +26,8 @@ public class Testing : MonoBehaviour
     private void Update()
     {
         distance = Vector2.Distance(enemy.transform.position, player.transform.position);
-        if (distance < 25f)
+        //Debug.Log(distance);
+        if (distance < 100f)
         {
             Vector3 PlayerPos = player.transform.position;
             Vector3 EnemyPos = enemy.transform.position;
@@ -35,8 +36,11 @@ public class Testing : MonoBehaviour
             pathfinding.GetGrid().GetXY(EnemyPos, out int X, out int Y);
             List<PathNode> path = pathfinding.FindPath(X, Y, x, y);
 
+            characterPathfinding.SetTargetPosition(PlayerPos);
+            
             if (path != null)
             {
+               // characterPathfinding.SetTargetPosition(PlayerPos);
                 //try
                 //{
                     //print("Path count is: "+path.Count);
