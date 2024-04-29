@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PopUp_Box : MonoBehaviour
 {
-    public GameObject PopUpBox;
+    public GameObject popUpBox;
     public Animator animator;
     public TMP_Text popUpText;
 
@@ -13,6 +13,6 @@ public class PopUp_Box : MonoBehaviour
     {
         popUpBox.SetActive(true);
         popUpText.text = text;
-        animator.SetSetTrigger("pop");
+        animator.SetTrigger("pop");
     }  
 }
