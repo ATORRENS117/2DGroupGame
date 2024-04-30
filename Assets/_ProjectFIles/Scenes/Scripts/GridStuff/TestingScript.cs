@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
@@ -50,7 +50,7 @@ public class Testing : MonoBehaviour
                 {
                   
 >>>>>>> Stashed changes
-                    for (int i = 0; i < path.Count; i++)
+                    for (int i = path.Count - 1; i >= 0; i--)
                     {
                         //print("PATH" + i + path[i]);
                         Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green);
@@ -75,4 +75,4 @@ public class Testing : MonoBehaviour
     }
 
 
-}
+}*/

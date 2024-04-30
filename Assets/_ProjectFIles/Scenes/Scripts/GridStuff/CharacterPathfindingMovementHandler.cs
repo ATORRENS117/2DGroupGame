@@ -5,20 +5,10 @@ using UnityEngine;
 
 public class CharacterPathfindingMovementHandler : MonoBehaviour
 {
-<<<<<<< Updated upstream
     public float speed = 1f; //for some reason 0.01f is the best speed - we can leave it at 1 and divide by 100?
     private int currentPathIndex;
     public List<Vector3> pathVectorList;
     private int i;
-=======
-    private const float speed = 6f;
-    private int currentPathIndex;
-    private List<Vector3> pathVectorList;
-
-    [SerializeField] GameObject angelBarrierScript;
-
-    public bool resetPath = false;
->>>>>>> Stashed changes
 
     private bool shouldMove = true;
     
@@ -31,25 +21,13 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< Updated upstream
-        // HandleMovement();
-        StartCoroutine(HandleMovement()); 
-
-        /* if (Input.GetMouseButtonDown(0))
-         {
-             SetTargetPosition(UtilsClass.GetMouseWorldPosition());
-         }*/
-
-
-=======
         
-        print("Reset Path is" + resetPath);
-        if (resetPath == false)
-        {
+        //print("Reset Path is" + resetPath);
+        //if (resetPath == false)
+        //{
             HandleMovement();
-        }
+        //}
         
->>>>>>> Stashed changes
     }
     
     //Critical
@@ -99,14 +77,6 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
     /// <returns></returns>
     private IEnumerator HandleMovement()
     {
-<<<<<<< Updated upstream
-        float reachDistance = 0.1f; // The distance at which the character will start moving to the next waypoint
-
-        if (pathVectorList != null && shouldMove) // Check shouldMove here
-        {
-            currentPathIndex = 0;
-            while (currentPathIndex < pathVectorList.Count)
-=======
         if (pathVectorList != null)
         {
             
@@ -116,30 +86,29 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
                 Vector3 moveDir = (targetPosition - transform.position).normalized;
                 float distanceBefore = Vector3.Distance(transform.position, targetPosition);
                 CheckPathCancellation();
-                try
-                {
-                    if (resetPath == true)
-                    {
-                        transform.position = transform.position;
-                        pathVectorList = null;
-                        resetPath = false;
-                    }
-                    else
-                    {
-                        transform.position = transform.position + moveDir * speed * Time.deltaTime;
-                    }
-                }
-                catch
-                {
+                //try
+                //{
+                    //if (resetPath == true)
+                    //{
+                        //transform.position = transform.position;
+                        //pathVectorList = null;
+                        //resetPath = false;
+                    //}
+                    //else
+                    //{
+                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+                    //}
+                //}
+                //catch
+               // {
 
-                }
+                //}
                 
             }
             else
->>>>>>> Stashed changes
             {
-                Vector3 targetPosition = pathVectorList[currentPathIndex];
-                while (Vector3.Distance(transform.position, targetPosition) > reachDistance)
+                //Vector3 targetPosition = pathVectorList[currentPathIndex];
+                while (Vector3.Distance(transform.position, targetPosition) > 1f) //reachDistance
                 {
                     if (!shouldMove) // Check shouldMove here
                         break;
@@ -147,8 +116,11 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/100) * Time.fixedDeltaTime);
                     yield return null; // Wait for next frame
                 }
-                if (!shouldMove) // Check shouldMove here
-                    break;
+                if (!shouldMove)
+                {
+                    
+                }// Check shouldMove here
+                    
 
                 currentPathIndex++;
 
@@ -165,7 +137,7 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
 
     private void CheckPathCancellation()
     {
-        resetPath = angelBarrierScript.GetComponent<AngelBarrierBehaviour>().cancelChase;
+        //resetPath = angelBarrierScript.GetComponent<AngelBarrierBehaviour>().cancelChase;
         
     }
 
