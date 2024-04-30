@@ -9,16 +9,28 @@ public class ImpAttackScript : MonoBehaviour
     public bool flipAttackAreaTrigger;
     private bool isAttacking;
     private int playerHealth;
+    private Animator animator;
     [SerializeField] GameObject EnemyMovementScriptRef;
     [SerializeField] GameObject HealthScriptRef;
     [SerializeField] GameObject ImpAttackTriggerRef;
 
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+    }
     private void Update()
     {
         isAttacking = ImpAttackTriggerRef.GetComponent<ImpAttackTrigger>().attacking;
         if (isAttacking)
         {
             Attack();
+            animator.SetBool("Attacking", true);
+        }
+        else
+        {
+            animator.SetBool("Attacking", false);
         }
     }
     private void Attack()
