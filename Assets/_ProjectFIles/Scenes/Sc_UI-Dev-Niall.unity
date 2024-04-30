@@ -24666,6 +24666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI-Game
       objectReference: {fileID: 0}
+    - target: {fileID: 1655162374364468232, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1853521196151546308, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: fillColour.a
       value: 1
@@ -24676,11 +24680,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5714624872772662661, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5714624872772662661, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6741393853401631165, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: m_Pivot.x
@@ -24764,11 +24768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8126569270831898579, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8126569270831898579, guid: 48bc8f5765d10ff43b025da62b0bb1eb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
