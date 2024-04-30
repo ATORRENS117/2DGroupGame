@@ -83,8 +83,8 @@ public class HealthManagement : MonoBehaviour
 
         IEnumerator GetHurt()
     {
-        Physics2D.IgnoreLayerCollision(3, 7);
+        Physics2D.IgnoreLayerCollision(9, 7);
         yield return new WaitForSeconds(2);
-        Physics2D.IgnoreLayerCollision(3, 7, false);
+        Physics2D.IgnoreLayerCollision(9, 7, false);
     }
 }
