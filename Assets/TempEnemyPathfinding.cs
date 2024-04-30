@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,7 +17,8 @@ public class TempEnemyPathfinding : MonoBehaviour
 
     private void Start()
     {
-
+        //find the player by tag
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
