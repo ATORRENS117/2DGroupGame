@@ -45,22 +45,4 @@ public class AudioTransition_Hell2Cave : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Alpha8))
-    //    {
-    //        FindObjectOfType<AudioManager>().Play(objectSound);
-    //        FindObjectOfType<AudioManager>().Stop(previousSound);
-
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.Alpha9))
-    //    {
-    //        FindObjectOfType<AudioManager>().Play(previousSound);
-    //        FindObjectOfType<AudioManager>().Stop(objectSound);
-
-    //    }
-    //}
-
-
-
     }
