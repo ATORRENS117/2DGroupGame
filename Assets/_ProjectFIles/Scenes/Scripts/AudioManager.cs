@@ -4,7 +4,11 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("Settings")]
+    public bool debugToConsole = false;
+
     public Sound[] sounds;
+
 
     
     void Awake()
@@ -23,13 +27,38 @@ public class AudioManager : MonoBehaviour
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
-        s.source.Play();
+        if (s != null)
+        {
+            s.source.Play();
+        }
+        else {
+            DebugAudio("Missing PLAY Audio " +  name);
+        }      
+
+        DebugAudio(s.name);
     }
 
     public void Stop (string name)
     {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
-        s.source.Stop();
+        if (s != null)
+        {
+            s.source.Stop();
+        }
+        else
+        {
+            DebugAudio("Missing STOP Audio " + name);
+        }
+
+        DebugAudio(s.name);
+    }
+
+    private void DebugAudio(string name)
+    {
+        if (debugToConsole)
+        {
+            Debug.Log("Audio Clip: " + name);
+        }
     }
 
     //How to use:
