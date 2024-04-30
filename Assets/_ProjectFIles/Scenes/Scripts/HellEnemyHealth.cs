@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+
+
 public class HellEnemyHealth : MonoBehaviour
 {
+    public Animator anim;
+    private bool death; 
+
     [SerializeField] private int health = 3;
 
     private int MaxHealth = 3;
@@ -14,6 +23,7 @@ public class HellEnemyHealth : MonoBehaviour
     private void Awake()
     {
         healthBar = GetComponentInChildren<EnemyHealthBar>();
+        anim = GetComponent<Animator>();    
     }
 
     private void Update()
@@ -42,8 +52,15 @@ public class HellEnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            anim.SetBool("Death", true); 
+
+        }
+        else
+        {
+            anim.SetBool("Death", false);
         }
     }
+       
 
     public void Heal(int amount)
     {
@@ -68,6 +85,7 @@ public class HellEnemyHealth : MonoBehaviour
 
     private void Die()
     {
+       
         Debug.Log("Enemy Dead");
         Destroy(gameObject);
     }

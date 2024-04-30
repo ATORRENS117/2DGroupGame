@@ -13,25 +13,33 @@ public class ImpAttackTrigger : MonoBehaviour
     private float animationLength = 1; //Set this to whatever time you need for wind up animation
     private bool windUpAnimationComplete = false;
     private bool closeEnoughToAttack = false;
+    private Animator anim; 
 
     [SerializeField] GameObject enemyPathFinding;
 
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
-        closeEnoughToAttack = enemyPathFinding.GetComponent<TempEnemyPathfinding>().attackDistance;
+        closeEnoughToAttack = enemyPathFinding.GetComponent<EnemyPathfinding>().attackDistance;
         if (closeEnoughToAttack)
         {
             attacking = true;
-
+            
         }
 
         if (attacking)
         {
+            anim.SetBool("Attacking", true); 
             attackArea.SetActive(true);
         }
         else
         {
             attackArea.SetActive(false);
+            anim.SetBool("Attacking", false);
         }
     }
 

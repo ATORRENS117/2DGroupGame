@@ -20,7 +20,7 @@ public class TempEnemyPathfinding : MonoBehaviour
     private bool previousIsFacingRightValue;
     private bool directionChanged;
     private bool preventMovement;
-
+    private Animator anim;
     public bool flipAttackArea;
     public bool attackDistance;
 
@@ -29,7 +29,7 @@ public class TempEnemyPathfinding : MonoBehaviour
 
     private void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -43,6 +43,7 @@ public class TempEnemyPathfinding : MonoBehaviour
                 attackDistance = true;
                 print("attackDistance enabled");
                 StartCoroutine(PauseForAttack());
+                anim.SetBool("", true);
 
             }
             else
@@ -51,18 +52,15 @@ public class TempEnemyPathfinding : MonoBehaviour
                 if (preventMovement)
                 {
                     print("Paused Movement");
+                    anim.SetBool("IsWalking", false);
                 }
                 else
                 {
                     Vector2 direction = player.transform.position - transform.position;
-
+                    anim.SetBool("IsWalking", true);
                     transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
                 }
-
-
-
             }
-
 
         }
 
