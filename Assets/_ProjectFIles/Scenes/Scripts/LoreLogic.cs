@@ -44,10 +44,12 @@ public class LoreLogic : MonoBehaviour
     private void PopupDialog()
     {
         //pop up here
+        dialogueBox.SetActive(true);
     }
     private void CloseDialog()
     {
         //close here
+        dialogueBox.SetActive(false);
     }
 
 }
