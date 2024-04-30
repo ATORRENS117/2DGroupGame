@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
@@ -26,8 +26,7 @@ public class Testing : MonoBehaviour
     private void Update()
     {
         distance = Vector2.Distance(enemy.transform.position, player.transform.position);
-        //Debug.Log(distance);
-        if (distance < 100f) //niall: i changed the distance to 100 - can set to a better value or variable
+        if (distance < 25f)
         {
             Vector3 PlayerPos = player.transform.position;
             Vector3 EnemyPos = enemy.transform.position;
@@ -36,34 +35,25 @@ public class Testing : MonoBehaviour
             pathfinding.GetGrid().GetXY(EnemyPos, out int X, out int Y);
             List<PathNode> path = pathfinding.FindPath(X, Y, x, y);
 
-            characterPathfinding.SetTargetPosition(PlayerPos);
-            
             if (path != null)
             {
-<<<<<<< Updated upstream
-               // characterPathfinding.SetTargetPosition(PlayerPos);
-                //try
-                //{
-                    //print("Path count is: "+path.Count);
-=======
                 try
                 {
-                  
->>>>>>> Stashed changes
-                    for (int i = path.Count - 1; i >= 0; i--)
+
+                    for (int i = 0; i < path.Count; i++)
                     {
                         //print("PATH" + i + path[i]);
                         Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green);
 
                         characterPathfinding.SetTargetPosition(PlayerPos);
-                        
+
 
                     }
                 }
                 catch
                 {
                     //print("Caught");
-                    
+
                 }
 
             }
@@ -75,4 +65,4 @@ public class Testing : MonoBehaviour
     }
 
 
-}*/
+}
