@@ -47,7 +47,7 @@ public class Grid<TGridObject>
         bool showDebug = false;
         if (showDebug)
         {
-            TextMesh[,] debugTextArray = new TextMesh[width, height];
+            TextMesh[,] debugTextArray = new TextMesh[width,height];
             for (int x = 0; x < gridArray.GetLength(0); x++)
             {
                 for (int y = 0; y < gridArray.GetLength(1); y++)
@@ -95,12 +95,6 @@ public class Grid<TGridObject>
         x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
         y = Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
 
-    }
-
-    public void NewGetXY(Vector3 worldPosition,out int x, out int y) //DON'T delete the previous/above 'GetXY' function, it's still needed. This was just made for a specific piece of code
-    {
-        x = Mathf.FloorToInt(worldPosition.x);
-        y = Mathf.FloorToInt(worldPosition.y);
     }
     public void SetGridObject(int x, int y, TGridObject value)
     {

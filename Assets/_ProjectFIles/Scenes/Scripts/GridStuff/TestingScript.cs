@@ -18,8 +18,8 @@ public class Testing : MonoBehaviour
 
     private void Start()
     {
-
-        pathfinding = new Pathfinding(80, 50);
+        //HERE
+        pathfinding = new Pathfinding(700, 100);
 
     }
 
@@ -40,25 +40,31 @@ public class Testing : MonoBehaviour
             
             if (path != null)
             {
+<<<<<<< Updated upstream
                // characterPathfinding.SetTargetPosition(PlayerPos);
                 //try
                 //{
                     //print("Path count is: "+path.Count);
+=======
+                try
+                {
+                  
+>>>>>>> Stashed changes
                     for (int i = 0; i < path.Count; i++)
                     {
                         //print("PATH" + i + path[i]);
-                        //Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green);
+                        Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green);
 
                         characterPathfinding.SetTargetPosition(PlayerPos);
-                        //print("Player Position: " + PlayerPos);
                         
 
                     }
-                //}
-                //catch
-                //{
+                }
+                catch
+                {
                     //print("Caught");
-                //}
+                    
+                }
 
             }
         }
