@@ -26,12 +26,9 @@ public class ImpAttackScript : MonoBehaviour
         if (isAttacking)
         {
             Attack();
-            animator.SetBool("Attacking", true);
+            
         }
-        else
-        {
-            animator.SetBool("Attacking", false);
-        }
+        
     }
     private void Attack()
     {

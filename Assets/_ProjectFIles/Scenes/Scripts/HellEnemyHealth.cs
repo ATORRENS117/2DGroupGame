@@ -51,7 +51,7 @@ public class HellEnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            StartCoroutine(Die());
             anim.SetBool("Death", true); 
 
         }
@@ -83,10 +83,11 @@ public class HellEnemyHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
        
         Debug.Log("Enemy Dead");
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 }

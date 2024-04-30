@@ -39,7 +39,7 @@ public class EnemyPathfinding : MonoBehaviour
 
         if (distance < 10)
         {
-            if (distance < 1)
+            if (distance < 2)
             {
                 attackDistance = true;
                 print("attackDistance enabled");

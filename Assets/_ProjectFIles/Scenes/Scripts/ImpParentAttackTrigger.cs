@@ -30,7 +30,10 @@ public class ImpAttackTrigger : MonoBehaviour
             attacking = true;
             
         }
-
+        else
+        {
+            attacking = false;  
+        }
         if (attacking)
         {
             anim.SetBool("Attacking", true); 
