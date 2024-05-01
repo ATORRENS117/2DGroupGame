@@ -33,6 +33,23 @@ public class HealthManagement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.transform.tag == "Spike")
+        {
+            health = health -= 1;
+        }
+
+        if (health == 0)
+        {
+            gameOver.SetActive(true);
+
+
+        }
+        else
+        {
+            StartCoroutine(GetHurt());
+
+        }
+
 
         if (collision.transform.tag == "Enemy")
         {
