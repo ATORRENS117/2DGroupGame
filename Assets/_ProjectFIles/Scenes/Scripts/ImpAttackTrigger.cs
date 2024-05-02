@@ -13,7 +13,7 @@ public class ImpAttackTrigger : MonoBehaviour
     private float animationLength = 1; //Set this to whatever time you need for wind up animation
     private bool windUpAnimationComplete = false;
     private bool closeEnoughToAttack = false;
-    private Animator anim; 
+    private Animator anim;
 
     [SerializeField] GameObject enemyPathFinding;
     [SerializeField] GameObject impAttackScript;
@@ -42,20 +42,34 @@ public class ImpAttackTrigger : MonoBehaviour
         closeEnoughToAttack = enemyPathFinding.GetComponent<EnemyPathfinding>().attackDistance;
         if (closeEnoughToAttack)
         {
+<<<<<<< Updated upstream:Assets/_ProjectFIles/Scenes/Scripts/ImpAttackTrigger.cs
             EnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<EnemyPathfinding>();
             //ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
             EnemyMovement.EnablePreventFlipBody();
             impAttackScriptRef.EnablePreventFlipAttackArea();
+=======
+            //TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
+            //ImpAttackScript impAtt= impAttackScript.GetComponent<ImpAttackScript>();
+            //EnemyMovement.EnablePreventFlipBody();
+            //impAtt.EnablePreventFlipAttackArea();
+>>>>>>> Stashed changes:Assets/_ProjectFIles/Scenes/Scripts/ImpParentAttackTrigger.cs
             attacking = true;
             
         }
         else
         {
             attacking = false;
+<<<<<<< Updated upstream:Assets/_ProjectFIles/Scenes/Scripts/ImpAttackTrigger.cs
             EnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<EnemyPathfinding>();
             //ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
             EnemyMovement.DisablePreventFlipBody();
             impAttackScriptRef.DisablePreventFlipAttackArea();
+=======
+            //TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
+            //ImpAttackScript impAtt = impAttackScript.GetComponent<ImpAttackScript>();
+            //EnemyMovement.DisablePreventFlipBody();
+            //impAtt.DisablePreventFlipAttackArea();
+>>>>>>> Stashed changes:Assets/_ProjectFIles/Scenes/Scripts/ImpParentAttackTrigger.cs
         }
         if (attacking)
         {
