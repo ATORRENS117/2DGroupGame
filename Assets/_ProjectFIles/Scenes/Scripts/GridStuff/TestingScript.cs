@@ -19,7 +19,7 @@ public class Testing : MonoBehaviour
     private void Start()
     {
         //HERE
-        pathfinding = new Pathfinding(700, 100);
+        pathfinding = new Pathfinding(1000, 100);
 
     }
 
