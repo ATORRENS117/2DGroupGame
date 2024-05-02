@@ -56,10 +56,7 @@ public class MovementandDoublejump : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(h * speed, rb.velocity.y); //left and right movement
-    }
+  
 
     bool isGrounded()
     {
