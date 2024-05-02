@@ -9,7 +9,7 @@ public class AngelHPManager : MonoBehaviour
 
     private void Awake()
     {
-        slider.value = 5;
+        slider.value = 15;
     }
 
     public void UpdateHealthBar(float currentValue, float maxValue)

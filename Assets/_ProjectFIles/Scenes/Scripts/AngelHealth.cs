@@ -7,10 +7,12 @@ public class AngelHealth : MonoBehaviour
     
     private bool death;
 
-    [SerializeField] public int Angelhealth = 5;
+    [SerializeField] public int Angelhealth = 15;
     [SerializeField] GameObject hurtMask;
 
-    private int MaxHealth = 5;
+    public bool respawnPossible = true;
+
+    private int MaxHealth = 15;
 
     [SerializeField] AngelHPManager healthBar;
 
@@ -77,7 +79,7 @@ public class AngelHealth : MonoBehaviour
 
     private IEnumerator Die()
     {
-
+        respawnPossible = false;
         Debug.Log("Angel Dead");
         yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
