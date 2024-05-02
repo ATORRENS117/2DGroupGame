@@ -32,6 +32,26 @@ public class HealthManagement : MonoBehaviour
             hearts[i].sprite = fullHeart;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Spike")
+      {
+          health = health -= 1;
+      }
+
+      if (health == 0)
+      {
+          gameOver.SetActive(true);
+
+
+      }
+      else
+      {
+          StartCoroutine(GetHurt());
+
+      }
+    }
     public void DamagePlayer(int amount)
     {
         attackTriggered = true;
