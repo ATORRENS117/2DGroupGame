@@ -19,7 +19,8 @@ public class CounterScript : MonoBehaviour
 
     public bool counterOn;
 
-    private float counterCooldown = 6.0f;
+    [Range(1,10)]
+    public float counterCooldown = 5.0f;
     private bool hitRegistered;
     private bool canCounter;
     private bool attackAttempted;
@@ -120,7 +121,7 @@ public class CounterScript : MonoBehaviour
         // TempCooldownVisual.SetActive(true);
         // TempButtonDownVisual.SetActive(false);
         yield return new WaitForSeconds(counterCooldown);
-        TempCooldownVisual.SetActive(false);
+//        TempCooldownVisual.SetActive(false);
         canCounter = true;
 
         //set the ui slider to max
