@@ -117,8 +117,8 @@ public class CounterScript : MonoBehaviour
         canCounter = false;
         counterOn = false;
         hitRegistered = false;
-        TempCooldownVisual.SetActive(true);
-        TempButtonDownVisual.SetActive(false);
+        // TempCooldownVisual.SetActive(true);
+        // TempButtonDownVisual.SetActive(false);
         yield return new WaitForSeconds(counterCooldown);
         TempCooldownVisual.SetActive(false);
         canCounter = true;

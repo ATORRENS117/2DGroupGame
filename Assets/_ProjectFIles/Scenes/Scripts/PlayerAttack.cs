@@ -43,6 +43,8 @@ public class PlayerAttack : MonoBehaviour
                 
                 
                 //TODO Set the Counter UI here to on or 1 if its a slider
+                
+                
             }
         }
     }
