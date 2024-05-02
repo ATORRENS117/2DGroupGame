@@ -9,6 +9,8 @@ TagManager:
   - Angel
   - AngelBarrier
   - Ground
+  - Spike
+  - Health
   layers:
   - Default
   - TransparentFX
