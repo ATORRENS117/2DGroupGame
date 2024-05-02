@@ -11,11 +11,11 @@ public class AngelHealth : MonoBehaviour
 
     private int MaxHealth = 5;
 
-    [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] AngelHPManager healthBar;
 
     private void Awake()
     {
-        healthBar = GetComponentInChildren<EnemyHealthBar>();
+        healthBar = GetComponentInChildren<AngelHPManager>();
     }
 
     private void Update()
