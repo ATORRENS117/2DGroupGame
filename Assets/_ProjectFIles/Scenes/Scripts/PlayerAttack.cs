@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,13 @@ public class PlayerAttack : MonoBehaviour
     private float timeToAttack = 0.25f;
     private float timer = 0f;
 
+    private Animator playerAnimator;
+
+    private void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -22,12 +30,18 @@ public class PlayerAttack : MonoBehaviour
         if (attacking)
         {
             timer += Time.deltaTime;
+            
+            playerAnimator.SetBool("Attacking", true);
 
             if (timer > timeToAttack)
             {
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+                playerAnimator.SetBool("Attacking", false);
+                
+                
+                
                 //TODO Set the Counter UI here to on or 1 if its a slider
             }
         }
@@ -39,5 +53,7 @@ public class PlayerAttack : MonoBehaviour
 
         attacking = true;
         attackArea.SetActive(attacking);
+        
+        
     }
 }

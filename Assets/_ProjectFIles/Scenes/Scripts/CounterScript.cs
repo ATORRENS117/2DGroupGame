@@ -32,9 +32,13 @@ public class CounterScript : MonoBehaviour
 
     private float counterMaxValue = 1f;
     private float counterCurrentValue = 0f;
+    
+    private Animator playerAnimator;
 
     private void Start()
     {
+        playerAnimator = GetComponent<Animator>();
+        
         canCounter = true;
         hitRegistered = false;
         counterOn = false;
@@ -69,6 +73,7 @@ public class CounterScript : MonoBehaviour
                 counterOn = true;
                 repeatButtonDown = true;
                 StartCoroutine(ButtonHeldDown());
+                playerAnimator.SetBool("Counter", true);
             }
 
             if (Input.GetMouseButtonUp(1))
@@ -78,6 +83,10 @@ public class CounterScript : MonoBehaviour
                 SetTempVisualButton(false);
                 repeatButtonDown = false;
             }
+        }
+        if (!counterOn)
+        {
+            playerAnimator.SetBool("Counter", false);
         }
     }
 
