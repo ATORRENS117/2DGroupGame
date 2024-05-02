@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("IsJumping", false);
+
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
