@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c2b2389-3a10-4464-93cf-5d522059cb5c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Repentance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Repentance/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Characters/PlayerAnimations/Player Placeholder.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Characters/PlayerAnimations/Player Placeholder.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Prefabs/Popup Reaper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Prefabs/Popup Reaper.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 fix.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 fix.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/CounterScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/CounterScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 Simon.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 Simon.unity.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,7 @@
       <workItem from="1714416348782" duration="56000" />
       <workItem from="1714416537871" duration="8288000" />
       <workItem from="1714642898083" duration="6005000" />
-      <workItem from="1714650136465" duration="604000" />
+      <workItem from="1714650136465" duration="1302000" />
     </task>
     <servers />
   </component>
