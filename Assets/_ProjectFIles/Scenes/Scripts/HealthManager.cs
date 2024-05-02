@@ -37,7 +37,7 @@ public class HealthManagement : MonoBehaviour
     {
         if (collision.CompareTag("Health"))
         {
-            health = health += 1; 
+            health = health += 5; 
             collision.gameObject.SetActive(false);
         }
     }
