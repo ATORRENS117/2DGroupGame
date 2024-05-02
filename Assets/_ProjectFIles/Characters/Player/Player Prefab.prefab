@@ -269,8 +269,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   tr: {fileID: 8441888913478021953}
+  dashFillAnimationSpeed: 5
   maxDash: 1
   currentDash: 1
+  flipAttackArea: 0
   dashSliderUI: {fileID: 0}
   footstepsController: {fileID: 1065649080043261794}
 --- !u!50 &7992798791955404066
@@ -493,6 +495,7 @@ MonoBehaviour:
   TempCooldownVisual: {fileID: 0}
   counterOn: 0
   healthScriptRef: {fileID: 7970408653459683082}
+  counterSliderUI: {fileID: 0}
 --- !u!114 &5927822293230602114
 MonoBehaviour:
   m_ObjectHideFlags: 0
