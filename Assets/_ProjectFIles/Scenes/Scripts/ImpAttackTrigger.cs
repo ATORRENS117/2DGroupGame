@@ -17,31 +17,45 @@ public class ImpAttackTrigger : MonoBehaviour
 
     [SerializeField] GameObject enemyPathFinding;
     [SerializeField] GameObject impAttackScript;
+    public ImpAttackScript impAttackScriptRef;
 
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        
+        //find the imp attack script from the child object 'ImpAttackArea'
+        if (transform.Find("ImpAttackArea").GetComponent<ImpAttackScript>() != null)
+        {
+            impAttackScript = transform.Find("ImpAttackArea").gameObject;
+            impAttackScriptRef = impAttackScript.GetComponent<ImpAttackScript>();
+        }
+        else
+        {
+            print("MISSING IMP ATTACK SCRIPT");
+        }
+        
+        
     }
     void Update()
     {
         closeEnoughToAttack = enemyPathFinding.GetComponent<EnemyPathfinding>().attackDistance;
         if (closeEnoughToAttack)
         {
-            TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
-            ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
+            EnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<EnemyPathfinding>();
+            //ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
             EnemyMovement.EnablePreventFlipBody();
-            ImpAtt.EnablePreventFlipAttackArea();
+            impAttackScriptRef.EnablePreventFlipAttackArea();
             attacking = true;
             
         }
         else
         {
             attacking = false;
-            TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
-            ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
+            EnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<EnemyPathfinding>();
+            //ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
             EnemyMovement.DisablePreventFlipBody();
-            ImpAtt.DisablePreventFlipAttackArea();
+            impAttackScriptRef.DisablePreventFlipAttackArea();
         }
         if (attacking)
         {

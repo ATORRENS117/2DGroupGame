@@ -26,6 +26,7 @@ public class EnemyPathfinding : MonoBehaviour
     private Animator anim; 
 
 
+    public bool preventFlipBody = false;
 
     private void Start()
     {
@@ -151,6 +152,21 @@ public class EnemyPathfinding : MonoBehaviour
         }
 
 
+    }
+    
+    public void SwitchPreventFlipBody()
+    {
+        preventFlipBody = !preventFlipBody;
+        Debug.Log("preventFlipB has been switched to: " + preventFlipBody);
+    }
+    public void EnablePreventFlipBody()
+    {
+        preventFlipBody = true;
+    }
+
+    public void DisablePreventFlipBody()
+    {
+        preventFlipBody = false;
     }
 
 

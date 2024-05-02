@@ -44,34 +44,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfb469bfb267a94c9f3b0cc32e39f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugToConsole: 1
   sounds:
   - name: Lava
     clip: {fileID: 8300000, guid: b1570dd164bb0e0489d4d4f5284c4019, type: 3}
-    volume: 0.7
+    volume: 0.3
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Footsteps
     clip: {fileID: 8300000, guid: a49e7e43101354446a62a895d8eb762b, type: 3}
-    volume: 0.7
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: a9de6273e79f3704183fde42ade0d054, type: 3}
-    volume: 0.7
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DashWoosh
     clip: {fileID: 8300000, guid: 527af563d96c0e3409ac372180fb46eb, type: 3}
-    volume: 0.7
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Breathing
     clip: {fileID: 8300000, guid: 317fc23877daba1469ce9726b12c33e9, type: 3}
-    volume: 0.7
+    volume: 0.3
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: HeavenAmbience
+    clip: {fileID: 8300000, guid: ee6f155c38b2d734f82c2c87cce1a2cb, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EarthAmbience
+    clip: {fileID: 8300000, guid: 73b9283968def4548946f799ae9701fa, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CaveAmbience
+    clip: {fileID: 8300000, guid: 608d0072fa6bb1b4d8b5753b6067b934, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: HellAmbience
+    clip: {fileID: 8300000, guid: 54b5f11c074e90142bc2f56848aadafa, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CastleAmbience
+    clip: {fileID: 8300000, guid: 41d34538039833a49888cb5916f3d195, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Silence
+    clip: {fileID: 8300000, guid: 06d9226f1fd544e47a96997e219a5c9a, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: dc78cf8e25554e3479ea3a230ab7ee0a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
