@@ -34,6 +34,7 @@ public class AngelHealth : MonoBehaviour
 
         this.health -= amount;
         healthBar.UpdateHealthBar(health, MaxHealth);
+        print("SHould be damaging angel");
         StartCoroutine(ShowHurt());
 
         if (health <= 0)
@@ -46,6 +47,7 @@ public class AngelHealth : MonoBehaviour
 
     private IEnumerator ShowHurt()
     {
+        print("Inside SHOWHURT");
         hurtMask.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         hurtMask.SetActive(false);
