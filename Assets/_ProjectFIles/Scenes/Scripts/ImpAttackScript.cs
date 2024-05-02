@@ -30,7 +30,7 @@ public class ImpAttackScript : MonoBehaviour
         if (isAttacking)
         {
             Attack();
-            TempEnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>();
+            EnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<EnemyPathfinding>();
             EnemyMovement.EnablePreventFlipBody();
             EnablePreventFlipAttackArea();
         }
@@ -62,7 +62,7 @@ public class ImpAttackScript : MonoBehaviour
                 HealthManagement healthMan = HealthScriptRef.GetComponent<HealthManagement>();
                 healthMan.DamagePlayer(damage);
                 finishedDelay = false;
-                TempEnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>();
+                EnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<EnemyPathfinding>();
                 EnemyMovement.DisablePreventFlipBody();
                 DisablePreventFlipAttackArea();
             }

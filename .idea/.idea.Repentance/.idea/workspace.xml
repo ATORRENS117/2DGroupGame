@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c2b2389-3a10-4464-93cf-5d522059cb5c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Repentance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Repentance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 fix.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Level 1 fix.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/EnemyPathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/EnemyPathfinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/ImpParentAttackTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/ImpParentAttackTrigger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/ImpAttackScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ProjectFIles/Scenes/Scripts/ImpAttackScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +94,7 @@
       <updated>1714416347420</updated>
       <workItem from="1714416348782" duration="56000" />
       <workItem from="1714416537871" duration="8288000" />
-      <workItem from="1714642898083" duration="1067000" />
+      <workItem from="1714642898083" duration="1568000" />
     </task>
     <servers />
   </component>
