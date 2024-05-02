@@ -7,7 +7,7 @@ public class AngelHealth : MonoBehaviour
     
     private bool death;
 
-    [SerializeField] private int health = 5;
+    [SerializeField] public int Angelhealth = 5;
     [SerializeField] GameObject hurtMask;
 
     private int MaxHealth = 5;
@@ -32,12 +32,12 @@ public class AngelHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Error: Can't have negative Damage");
         }
 
-        this.health -= amount;
-        healthBar.UpdateHealthBar(health, MaxHealth);
+        this.Angelhealth -= amount;
+        healthBar.UpdateHealthBar(Angelhealth, MaxHealth);
         print("SHould be damaging angel");
         StartCoroutine(ShowHurt());
 
-        if (health <= 0)
+        if (Angelhealth <= 0)
         {
             StartCoroutine(Die());
 
@@ -61,17 +61,17 @@ public class AngelHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("ERROR: Can't have negative healing");
         }
 
-        bool wouldBeOverMaxHealth = health + amount > MaxHealth;
+        bool wouldBeOverMaxHealth = Angelhealth + amount > MaxHealth;
 
         if (wouldBeOverMaxHealth)
         {
-            this.health = MaxHealth;
-            healthBar.UpdateHealthBar(health, MaxHealth);
+            this.Angelhealth = MaxHealth;
+            healthBar.UpdateHealthBar(Angelhealth, MaxHealth);
         }
         else
         {
-            this.health += amount;
-            healthBar.UpdateHealthBar(health, MaxHealth);
+            this.Angelhealth += amount;
+            healthBar.UpdateHealthBar(Angelhealth, MaxHealth);
         }
     }
 
