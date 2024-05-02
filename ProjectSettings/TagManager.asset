@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Angel
   - AngelBarrier
+  - Ground
   layers:
   - Default
   - TransparentFX

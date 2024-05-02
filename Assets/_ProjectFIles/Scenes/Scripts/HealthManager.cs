@@ -18,6 +18,7 @@ public class HealthManagement : MonoBehaviour
 
     private void Awake()
     {
+
         gameOver.SetActive(false);
     }
     void Update()
@@ -31,9 +32,11 @@ public class HealthManagement : MonoBehaviour
             hearts[i].sprite = fullHeart;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void DamagePlayer(int amount)
     {
-        if (collision.transform.tag == "Spike")
+        attackTriggered = true;
+        counterEnabled = counterScript.GetComponent<CounterScript>().counterOn;
+        /*if (collision.transform.tag == "Spike")
         {
             health = health -= 1;
         }
@@ -48,60 +51,60 @@ public class HealthManagement : MonoBehaviour
         {
             StartCoroutine(GetHurt());
 
-        }
+        }*/
 
 
-        if (collision.transform.tag == "Enemy")
+
+        if (counterEnabled == true)
         {
-            attackTriggered = true;
-            counterEnabled = counterScript.GetComponent<CounterScript>().counterOn;
-            if (counterEnabled == true)
-            {
-                Debug.Log("Damage Countered");
-                StartCoroutine(DelayAttackTrigger());
+            Debug.Log("Damage Countered");
+            StartCoroutine(DelayAttackTrigger());
 
-            }
-            else
+        }
+        else
+        {
+            attackTriggered = false;
+            if (health != 0)
             {
-                attackTriggered = false;
-                if (health != 0)
+
+
+                health = health - amount;
+
+
+
+
+                if (health == 0)
                 {
+                    gameOver.SetActive(true);
 
 
-                    health = health - 1;
-
-
-
-
-                    if (health == 0)
-                    {
-                        gameOver.SetActive(true);
-
-
-                    }
-                    else
-                    {
-                        StartCoroutine(GetHurt());
-
-                    }
                 }
+                else
+                {
+                    StartCoroutine(GetHurt());
 
-
+                }
             }
         }
+
+
+
+
+
 
     }
 
-        IEnumerator DelayAttackTrigger()
-        {
-            yield return null;
-            attackTriggered = false;
-        }
+    IEnumerator DelayAttackTrigger()
+    {
+        yield return null;
+        attackTriggered = false;
+    }
 
-        IEnumerator GetHurt()
+    IEnumerator GetHurt()
     {
         Physics2D.IgnoreLayerCollision(9, 7);
         yield return new WaitForSeconds(2);
         Physics2D.IgnoreLayerCollision(9, 7, false);
     }
 }
+

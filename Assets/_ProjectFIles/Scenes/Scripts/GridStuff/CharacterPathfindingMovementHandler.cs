@@ -23,7 +23,7 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour
     private void Update()
     {
 
-        print("Reset Path is" + resetPath);
+        //print("Reset Path is" + resetPath);
         if (resetPath == false)
         {
             HandleMovement();

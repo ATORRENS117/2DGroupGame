@@ -16,6 +16,7 @@ public class ImpAttackTrigger : MonoBehaviour
     private Animator anim; 
 
     [SerializeField] GameObject enemyPathFinding;
+    [SerializeField] GameObject impAttackScript;
 
 
     private void Awake()
@@ -27,12 +28,20 @@ public class ImpAttackTrigger : MonoBehaviour
         closeEnoughToAttack = enemyPathFinding.GetComponent<EnemyPathfinding>().attackDistance;
         if (closeEnoughToAttack)
         {
+            TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
+            ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
+            EnemyMovement.EnablePreventFlipBody();
+            ImpAtt.EnablePreventFlipAttackArea();
             attacking = true;
             
         }
         else
         {
-            attacking = false;  
+            attacking = false;
+            TempEnemyPathfinding EnemyMovement = enemyPathFinding.GetComponent<TempEnemyPathfinding>();
+            ImpAttackScript ImpAtt = impAttackScript.GetComponent<ImpAttackScript>();
+            EnemyMovement.DisablePreventFlipBody();
+            ImpAtt.DisablePreventFlipAttackArea();
         }
         if (attacking)
         {

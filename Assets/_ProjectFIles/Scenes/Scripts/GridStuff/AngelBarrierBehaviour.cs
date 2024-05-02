@@ -28,6 +28,10 @@ public class AngelBarrierBehaviour : MonoBehaviour
             cancelChase = true;
 
         }
+        else
+        {
+            Debug.Log("Collided");
+        }
 
     }
 

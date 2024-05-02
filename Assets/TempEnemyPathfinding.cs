@@ -9,27 +9,33 @@ using UnityEngine.UIElements;
 
 public class TempEnemyPathfinding : MonoBehaviour
 {
-
+    [SerializeField] GameObject ImpAttackScript;
     [SerializeField] GameObject player;
     [SerializeField] float speed;
     private float distance;
     private float horizontalOne;
     private float horizontalTwo;
-    private bool isFacingRight = true;
     private bool allowSecondRoutine = false;
-    private bool previousIsFacingRightValue;
-    private bool directionChanged;
+    private bool allowSecondDirectionRoutine = false;
+    private bool directionChanged = false;
     private bool preventMovement;
     private Animator anim;
+    private bool currentDirectionisRight;
+    private bool firstDirection;
+    private bool secondDirection;
+    private bool comparisonPossible = false;
+    private bool InitialDirectionSet = false;
+
     public bool flipAttackArea;
     public bool attackDistance;
+    public bool preventFlipBody = false;
 
 
 
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -43,24 +49,23 @@ public class TempEnemyPathfinding : MonoBehaviour
                 attackDistance = true;
                 print("attackDistance enabled");
                 StartCoroutine(PauseForAttack());
-                anim.SetBool("", true);
 
             }
             else
             {
                 attackDistance = false;
-                if (preventMovement)
-                {
-                    print("Paused Movement");
-                    anim.SetBool("IsWalking", false);
-                }
-                else
-                {
-                    Vector2 direction = player.transform.position - transform.position;
-                    anim.SetBool("IsWalking", true);
-                    transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-                }
+                ImpAttackScript ImpAtt = ImpAttackScript.GetComponent<ImpAttackScript>();
+                DisablePreventFlipBody();
+                ImpAtt.DisablePreventFlipAttackArea();
+                Vector2 direction = player.transform.position - transform.position;
+
+                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+
+
+
+
             }
+
 
         }
 
@@ -68,12 +73,35 @@ public class TempEnemyPathfinding : MonoBehaviour
 
 
         CheckDirection();
-        Flip();
+        if (preventFlipBody == false)
+        {
+            Flip();
+        }
+        if (InitialDirectionSet)
+        {
+            StartCoroutine(CompareNextDirectionOne());
+            if (allowSecondDirectionRoutine)
+            {
+                StartCoroutine(CompareNextDirectionTwo());
+            }
+            if (comparisonPossible)
+            {
+                if (firstDirection == secondDirection)
+                {
+                    directionChanged = false;
+
+                }
+                if (firstDirection != secondDirection)
+                {
+                    directionChanged = true;
+                    print("Direction Changed");
+                }
+            }
 
 
 
+        }
     }
-
     private IEnumerator PauseForAttack()
     {
         preventMovement = true;
@@ -92,19 +120,29 @@ public class TempEnemyPathfinding : MonoBehaviour
         //StartCoroutine(GetHorizontalTwo());
         if (horizontalOne != horizontalTwo)
         {
-            previousIsFacingRightValue = isFacingRight;
+            
             if (horizontalOne < horizontalTwo)
             {
-                isFacingRight = true;
+                //print("H1: " + horizontalOne + " H2: " + horizontalTwo + ". SHOULD be facing right");
+                currentDirectionisRight = true;
+                InitialDirectionSet = true;
 
             }
             if (horizontalOne > horizontalTwo)
             {
-                isFacingRight = false;
+                //print("H1: " + horizontalOne + " H2: " + horizontalTwo + ". SHOULD be facing left");
+
+                currentDirectionisRight = false;
+                InitialDirectionSet = true;
 
 
             }
 
+        }
+        if (horizontalOne == horizontalTwo)
+        {
+            //print("Paused Movement");
+            anim.SetBool("IsWalking", false);
         }
     }
 
@@ -126,6 +164,20 @@ public class TempEnemyPathfinding : MonoBehaviour
 
     }
 
+    private IEnumerator CompareNextDirectionOne()
+    {
+        yield return new WaitForSeconds(0.1f);
+        firstDirection = currentDirectionisRight;
+        yield return new WaitForSeconds(0.1f);
+        allowSecondDirectionRoutine = true;
+    }
+    private IEnumerator CompareNextDirectionTwo()
+    {
+        secondDirection = currentDirectionisRight;
+        comparisonPossible = true;
+        yield return new WaitForSeconds(0.1f);
+    }
+
     private void SetYValue(float n)
     {
         transform.position = new Vector3(transform.position.x, n, transform.position.z);
@@ -134,25 +186,37 @@ public class TempEnemyPathfinding : MonoBehaviour
     private void Flip()
     {
 
-        if (isFacingRight != previousIsFacingRightValue)
+
         {
-            directionChanged = true;
+            if (directionChanged)
+            {
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+                flipAttackArea = true;
+                directionChanged = false;
+            }
+
+
         }
-        if (isFacingRight == previousIsFacingRightValue)
-        {
-            directionChanged = false;
-        }
-        if (directionChanged)
-        {
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-            flipAttackArea = true;
-        }
+
 
 
     }
+    public void SwitchPreventFlipBody()
+    {
+        preventFlipBody = !preventFlipBody;
+        Debug.Log("preventFlipB has been switched to: " + preventFlipBody);
+    }
 
+    public void EnablePreventFlipBody()
+    {
+        preventFlipBody = true;
+    }
 
+    public void DisablePreventFlipBody()
+    {
+        preventFlipBody = false;
+    }
 }
 

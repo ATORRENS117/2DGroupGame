@@ -9,6 +9,10 @@ public class ImpAttackScript : MonoBehaviour
     public bool flipAttackAreaTrigger;
     private bool isAttacking;
     private int playerHealth;
+    private bool attackRegistered;
+    private bool finishedDelay = false;
+    public bool preventFlipAttackA = false;
+    private bool readPreventFlip;
     private Animator animator;
     [SerializeField] GameObject EnemyMovementScriptRef;
     [SerializeField] GameObject HealthScriptRef;
@@ -26,32 +30,65 @@ public class ImpAttackScript : MonoBehaviour
         if (isAttacking)
         {
             Attack();
-            
+            TempEnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>();
+            EnemyMovement.EnablePreventFlipBody();
+            EnablePreventFlipAttackArea();
         }
         
     }
     private void Attack()
     {
         HealthManagement healthMan = HealthScriptRef.GetComponent<HealthManagement>();
-        playerHealth = HealthScriptRef.GetComponent<HealthManagement>().health;
+        playerHealth = healthMan.health;
         if (playerHealth != 0)
         {
-            print("Hit here!"); 
+            //print("Hit here!");
+            attackRegistered = true;
         }
         else
         {
-            print("for some reason not hit?");
+            //print("for some reason not hit?");
         }
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            StartCoroutine(DelayDmgInflict());
+            if (finishedDelay)
+            {
+                HealthManagement healthMan = HealthScriptRef.GetComponent<HealthManagement>();
+                healthMan.DamagePlayer(damage);
+                finishedDelay = false;
+                TempEnemyPathfinding EnemyMovement = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>();
+                EnemyMovement.DisablePreventFlipBody();
+                DisablePreventFlipAttackArea();
+            }
+
+
+        }
+
+    }
+
+    private IEnumerator DelayDmgInflict()
+    {
+
+        finishedDelay = true;
+        yield return new WaitForSeconds(0.3f);
+
+    }
     private void FixedUpdate()
     {
-        if (flipAttackAreaTrigger)
+        if (preventFlipAttackA == false)
         {
-            flipAttackAreaTrigger = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>().flipAttackArea;
-            Flip();
-            flipAttackAreaTrigger = false;
+            if (flipAttackAreaTrigger)
+            {
+                flipAttackAreaTrigger = EnemyMovementScriptRef.GetComponent<TempEnemyPathfinding>().flipAttackArea;
+                Flip();
+                flipAttackAreaTrigger = false;
+            }
         }
     }
     private void Flip()
@@ -63,6 +100,21 @@ public class ImpAttackScript : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+  public void SwitchPreventFlipAttackArea()
+    {
+        preventFlipAttackA = !preventFlipAttackA;
+        Debug.Log("preventFlipA has been switched to: " + preventFlipAttackA);
+    }
+
+    public void EnablePreventFlipAttackArea()
+    {
+        preventFlipAttackA = true;
+    }
+
+    public void DisablePreventFlipAttackArea()
+    {
+        preventFlipAttackA = false;
     }
 }
 
