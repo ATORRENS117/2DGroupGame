@@ -158,7 +158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4700453083489448072
 Transform:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4523492073091259291, guid: 205be69b3a34737419787754186f63e5, type: 3}
   m_Color: {r: 0.9056604, g: 0.38789603, b: 0.38789603, a: 1}
   m_FlipX: 0
@@ -652,6 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AngelProjectilePrefab: {fileID: 8011810887468511320, guid: e5b1db8abff600247a7151ec57cc9d77, type: 3}
+  player: {fileID: 0}
   projectilePos: {fileID: 1657065270076180773}
 --- !u!114 &5837751301738754727
 MonoBehaviour:
