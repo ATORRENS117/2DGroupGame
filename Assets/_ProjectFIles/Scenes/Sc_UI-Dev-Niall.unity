@@ -14414,9 +14414,25 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7067753376224294540, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
     - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_text
       value: Demons destroy, ANGELS ENSLAVE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923451193417125369, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_Pivot.x
@@ -14953,9 +14969,25 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7067753376224294540, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
     - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_text
       value: Here lies a proud ruler of a fallen nation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923451193417125369, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_Pivot.x
@@ -23489,9 +23521,25 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7067753376224294540, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
     - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_text
       value: DEATH TO STUDIO MAPPA!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923451193417125369, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_Pivot.x
@@ -24673,6 +24721,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 7067753376224294540, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
+    - target: {fileID: 7830973464979031594, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9044003100088451571, guid: 6c31378b2f21d504ba0f16033d8daa3d, type: 2}
     - target: {fileID: 7923451193417125369, guid: c13f80f261caa184e8cfed21a6f5be2d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
