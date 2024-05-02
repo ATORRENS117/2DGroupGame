@@ -26,7 +26,7 @@ public class Testing : MonoBehaviour
     private void Update()
     {
         distance = Vector2.Distance(enemy.transform.position, player.transform.position);
-        if (distance < 25f)
+        if (distance < 35f)
         {
             Vector3 PlayerPos = player.transform.position;
             Vector3 EnemyPos = enemy.transform.position;

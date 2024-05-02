@@ -13,7 +13,7 @@ public class ImpAttackTrigger : MonoBehaviour
     private float animationLength = 1; //Set this to whatever time you need for wind up animation
     private bool windUpAnimationComplete = false;
     private bool closeEnoughToAttack = false;
-    private Animator anim; 
+    private Animator anim;
 
     [SerializeField] GameObject enemyPathFinding;
     [SerializeField] GameObject impAttackScript;
