@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5059957336652755283}
   m_Layer: 0
   m_Name: Heart pickup
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
