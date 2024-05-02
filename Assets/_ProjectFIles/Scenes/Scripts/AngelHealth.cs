@@ -8,14 +8,16 @@ public class AngelHealth : MonoBehaviour
     private bool death;
 
     [SerializeField] private int health = 5;
+    [SerializeField] GameObject hurtMask;
 
     private int MaxHealth = 5;
 
-    [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] AngelHPManager healthBar;
 
     private void Awake()
     {
-        healthBar = GetComponentInChildren<EnemyHealthBar>();
+        healthBar = GetComponentInChildren<AngelHPManager>();
+        hurtMask.SetActive(false);
     }
 
     private void Update()
@@ -32,6 +34,7 @@ public class AngelHealth : MonoBehaviour
 
         this.health -= amount;
         healthBar.UpdateHealthBar(health, MaxHealth);
+        StartCoroutine(ShowHurt());
 
         if (health <= 0)
         {
@@ -39,6 +42,13 @@ public class AngelHealth : MonoBehaviour
 
         }
         
+    }
+
+    private IEnumerator ShowHurt()
+    {
+        hurtMask.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        hurtMask.SetActive(false);
     }
 
 
