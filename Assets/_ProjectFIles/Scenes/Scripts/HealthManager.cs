@@ -36,6 +36,8 @@ public class HealthManagement : MonoBehaviour
     {
         attackTriggered = true;
         counterEnabled = counterScript.GetComponent<CounterScript>().counterOn;
+        
+        print("roighfogvnofn");
         /*if (collision.transform.tag == "Spike")
         {
             health = health -= 1;
